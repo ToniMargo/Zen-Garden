@@ -1,0 +1,82 @@
+@import "variables";
+
+// Define a mixin for grid areas
+@mixin grid-area($col-start, $col-end, $row-start, $row-end) {
+  grid-column: $col-start / $col-end;
+  grid-row: $row-start / $row-end;
+}
+
+// Define a function for calculating view width
+@function vw($size) {
+  @return ($size / 100) * 1vw;
+}
+
+body {
+  overflow: scroll;
+}
+
+.page-wrapper {
+  width: 600vw;
+  max-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, vw(200));
+  grid-template-rows: 100vh;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 vw(20);
+  scroll-behavior: smooth;
+}
+
+// ZEN INTRO
+#zen-intro {
+  @include grid-area(1, 2, 1, 3);
+  display: grid;
+  grid-template-columns: repeat(2, 100vw);
+  grid-template-rows: repeat(2, 50vh);
+}
+
+header {
+  @include grid-area(1, 2, 1, 2);
+}
+#zen-summary {
+  @include grid-area(1, 2, 2, 3);
+}
+#zen-preamble {
+  @include grid-area(2, 3, 1, 3);
+}
+
+// ZEN SUPPORTING
+#zen-supporting {
+  @include grid-area(2, 3, 1, 3);
+  display: grid;
+  grid-template-columns: repeat(5, 100vw);
+  grid-template-rows: 95vh 5vh;
+}
+
+#zen-explanation {
+  @include grid-area(1, 2, 1, 3);
+}
+#zen-participation {
+  @include grid-area(2, 3, 1, 3);
+}
+#zen-benefits {
+  @include grid-area(3, 4, 1, 3);
+}
+#zen-requirements {
+  @include grid-area(4, 5, 1, 2);
+}
+footer {
+  @include grid-area(4, 5, 2, 3);
+  text-align: center;
+}
+
+header,
+#zen-summary,
+#zen-preamble,
+#zen-explanation,
+#zen-participation,
+#zen-benefits,
+#zen-requirements,
+footer {
+  scroll-snap-align: start;
+}

@@ -1,0 +1,112 @@
+@import "variables";
+
+// TEXT STYLES
+
+// Heading styles
+@mixin heading-styles {
+  color: $heading-color;
+  font-family: $heading-font;
+}
+h1 {
+  @include heading-styles;
+  font-size: 250%;
+}
+h2 {
+  font-family: $body-font;
+  font-weight: 100;
+  text-transform: uppercase;
+  @include heading-styles;
+}
+h3 {
+  @include heading-styles;
+}
+
+// Body styles
+@mixin body-styles {
+  color: $body-color;
+  font-family: $body-font;
+}
+p,
+a,
+abbr,
+li {
+  @include body-styles;
+}
+a,
+abbr {
+  color: $green;
+}
+a:visited {
+  color: $blue;
+}
+
+// SHAPES
+
+@mixin shape-common-style {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.5;
+}
+.extra1 {
+  @include shape-common-style;
+  top: 65%;
+  left: 0%;
+  width: 0;
+  height: 0;
+  border-left: 200px solid transparent;
+  border-right: 200px solid transparent;
+  border-top: 300px solid $red;
+  transform: rotate(45deg);
+}
+
+.extra2 {
+  @include shape-common-style;
+  top: 35%;
+  right: 12%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: $yellow;
+}
+
+.extra3 {
+  @include shape-common-style;
+  top: 9%;
+  left: 2%;
+  width: 300px;
+  height: 50px;
+  background-color: $blue;
+  transform: rotate(45deg);
+}
+
+.extra4 {
+  @include shape-common-style;
+  top: 5%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background-color: $green;
+  transform: rotate(45deg);
+}
+
+.extra5 {
+  @include shape-common-style;
+  top: 5%;
+  right: 5%;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 50px solid $dark-blue;
+}
+
+.extra6 {
+  @include shape-common-style;
+  top: 5%;
+  right: 8%;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 50px solid $dark-blue;
+}
